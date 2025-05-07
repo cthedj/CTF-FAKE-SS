@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberCorp Intranet Login</title>
+  <title>Login - CyberCloud</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>CyberCorp Internal Portal</h1>
-    <form onsubmit="login(); return false;">
-      <input type="text" id="user" placeholder="Username" required />
-      <input type="password" id="pass" placeholder="Password" required />
-      <button type="submit">Login</button>
-    </form>
-    <a href="#" class="forgot">Forgot password?</a>
-    <p class="testimonials">"CyberCorp's portal is so secure, even the devs can't get in!" - Intern</p>
+  <div class="login-container">
+    <div class="login-card">
+      <div class="icon">🔐</div>
+      <h2>Sign in with email</h2>
+      <p class="subtitle">Make a new doc to bring your words, data, and teams together. For free</p>
+      <form onsubmit="login(); return false;">
+        <input type="email" placeholder="Email" id="user" required />
+        <input type="password" placeholder="Password" id="pass" required />
+        <div class="form-options">
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit">Get Started</button>
+        <div class="divider">Or sign in with</div>
+        <div class="social-buttons">
+          <button class="social">G</button>
+          <button class="social">f</button>
+          <button class="social"></button>
+        </div>
+      </form>
+    </div>
   </div>
-  <!-- NOTE: Auth is handled in login.js – don't expose test creds here! -->
   <script src="login.js"></script>
 </body>
 </html>
