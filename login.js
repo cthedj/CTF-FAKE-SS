@@ -1,13 +1,9 @@
-const validUser = "admin";
-const validPass = atob("Y3liZXJwYXNzMjAyNQ=="); // Base64 of "cyberpass2025"
-
 function login() {
-  const user = document.getElementById("user").value;
-  const pass = document.getElementById("pass").value;
+  const button = document.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.innerHTML = `<span class="spinner"></span> Logging in...`;
 
-  if (user === validUser && pass === validPass) {
+  setTimeout(() => {
     window.location.href = "dashboard.html";
-  } else {
-    alert("Incorrect username or password");
-  }
+  }, 2000);
 }
