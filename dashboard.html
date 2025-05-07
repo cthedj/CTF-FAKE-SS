@@ -2,14 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CyberCorp Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <style>
+    body {
+      background: #f0fdf4;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .flag-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .flag {
+      font-family: monospace;
+      background: #ecfdf5;
+      color: #065f46;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Welcome, admin!</h2>
-    <p>Your flag is: <strong>FLAG{login-success-31337}</strong></p>
+  <div class="flag-box">
+    <h2>🎉 Access Granted</h2>
+    <p>Here is your flag:</p>
+    <div class="flag">FLAG{sh4d0w_l0gg3r_succ3ss}</div>
   </div>
 </body>
 </html>
