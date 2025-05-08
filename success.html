@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Success</title>
+  <style>
+    body {
+      background: #dcfce7;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input {
+      display: block;
+      margin: 1rem auto;
+      padding: 0.5rem;
+      width: 80%;
+    }
+    .time {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <form id="winnerForm">
+    <h2>🎉 Congratulations!</h2>
+    <p class="time" id="timeTaken">Time: ... seconds</p>
+    <input type="text" id="name" placeholder="Your First Name" required />
+    <input type="text" id="company" placeholder="Your Company" required />
+    <button type="submit">Submit to Leaderboard</button>
+  </form>
+
+  <script>
+    const start = parseInt(sessionStorage.getItem('startTime'), 10);
+    const end = parseInt(sessionStorage.getItem('endTime'), 10);
+    const seconds = ((end - start) / 1000).toFixed(2);
+    document.getElementById("timeTaken").textContent = `Time: ${seconds} seconds`;
+
+    document.getElementById("winnerForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const company = document.getElementById("company").value;
+
+      const entry = {
+        timestamp: new Date().toISOString(),
+        name,
+        company,
+        time: seconds
+      };
+
+      const existing = JSON.parse(localStorage.getItem('leaderboard') || '[]');
+      existing.push(entry);
+      localStorage.setItem('leaderboard', JSON.stringify(existing));
+
+      window.location.href = "leaderboard.html";
+    });
+  </script>
+</body>
+</html>
